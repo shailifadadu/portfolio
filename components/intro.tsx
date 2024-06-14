@@ -31,7 +31,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="./profile.jpg"
+              src="/profile.jpg"
               alt="Shaily Fadadu"
               width="192"
               height="192"
