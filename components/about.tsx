@@ -19,30 +19,26 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Accounting</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
-        </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
+        Hey, I'm Shaily Fadadu, a dedicated software engineering student from
+        Dharmsinh Desai University. I am passionate about leveraging technology
+        to solve real-world problems and create impactful solutions. I'm
+        actively involved in the GDSC tech community, where I organize tech
+        events, workshops, and hackathons. Under GDSC, I've anchored and spoken
+        at numerous events and also serve as a content creator. Through these
+        experiences, I've developed a keen eye for detail, a knack for
+        problem-solving, and a drive to continuously learn and adapt in the
+        fast-paced world of technology. I'm always eager to learn new
+        technologies and currently seeking an{" "}
+        <span className="font-medium italic">
+          internship and full-time position
+        </span>{" "}
+        as a software developer.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies, and playing with my dog. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
-        learning how to play the guitar.
+        Beyond technical skills, I value collaboration and teamwork, believing
+        that diverse perspectives lead to innovative outcomes. Let's connect and
+        discuss how we can innovate together!🚀
       </p>
     </motion.section>
   );
