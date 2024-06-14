@@ -1,5 +1,8 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
+import { BiLogoGoogleCloud } from "react-icons/bi";
+import { SiContributorcovenant } from "react-icons/si";
+import { HiPencil } from "react-icons/hi2";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
@@ -35,28 +38,36 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Mentee",
+    location: "Codess.Cafe",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "Participating in the Codess.Cafe mentorship program, where I collaborate with industry professionals to enhance my tech skills and build a strong professional network.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "Jun 2024 - Present",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Contributor",
+    location: "GirlScript Summer of Code",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
-    icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+      "Contributing to various Open Source projects and learning best practices in open-source development.",
+    icon: React.createElement(SiContributorcovenant),
+    date: "May 2024 - Present",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Cloud Team Member",
+    location: "Google Developer Student Clubs",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "Serving as a cloud team member for a year, organizing and speaking at various tech events and hackathons.",
+    icon: React.createElement(BiLogoGoogleCloud),
+    date: "Sep 2023 - Present",
+  },
+  {
+    title: "Associate Content Creator",
+    location: "IETE Student's Forum DDU",
+    description:
+      "Created a variety of engaging content as an associate content creator.",
+    icon: React.createElement(HiPencil),
+    date: "Jul 2023 - Jan 2024",
   },
 ] as const;
 
