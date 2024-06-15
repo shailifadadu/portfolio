@@ -78,6 +78,7 @@ export const projectsData = [
       "A sleek and simple currency converter web application that allows users to convert between different currencies using real-time exchange rates.",
     tags: ["React", "Tailwind", "Vercel"],
     imageUrl: MoneyMorpher,
+    githubLink: "https://github.com/shailifadadu/MoneyMorpher",
   },
   {
     title: "LinkShrink",
@@ -85,6 +86,7 @@ export const projectsData = [
       "This is a simple URL shortener that allows users to generate short URLs for long links, making it easier to share them.",
     tags: ["NodeJS", "Express", "MongoDB"],
     imageUrl: LinkShrink,
+    githubLink: "https://github.com/shailifadadu/LinkShrink",
   },
   {
     title: "SkyCast",
@@ -92,6 +94,7 @@ export const projectsData = [
       "A go-to weather app for real-time updates and forecasts. It's designed as a learning exercise to understand weather data integration and deployment using AWS.",
     tags: ["HTML5", "CSS3", "Javascript", "AWS"],
     imageUrl: SkyCast,
+    githubLink: "https://github.com/shailifadadu/SkyCast",
   },
 ] as const;
 
