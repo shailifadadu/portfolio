@@ -19,11 +19,11 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        Hey, I'm Shaily Fadadu, a dedicated software engineering student from
-        Dharmsinh Desai University. I am passionate about leveraging technology
-        to solve real-world problems and create impactful solutions. I'm
-        actively involved in the GDSC tech community, where I organize tech
-        events, workshops, and hackathons. Through these
+        Hey there 👋, I'm Shaily Fadadu, a dedicated software engineering
+        student from Dharmsinh Desai University. I am passionate about
+        leveraging technology to solve real-world problems and create impactful
+        solutions. Actively involved in the tech community like GDSC, where I
+        organize tech events, workshops, and hackathons. Through these
         experiences, I've developed a keen eye for detail, a knack for
         problem-solving, and a drive to continuously learn and adapt in the
         fast-paced world of technology. I'm always eager to learn new
