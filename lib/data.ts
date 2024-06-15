@@ -7,7 +7,7 @@ import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import MoneyMorpher from "@/public/MoneyMorpher.png";
 import LinkShrink from "@/public/LinkShrink.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import SkyCast from "@/public/SkyCast.png";
 
 export const links = [
   {
@@ -87,11 +87,11 @@ export const projectsData = [
     imageUrl: LinkShrink,
   },
   {
-    title: "Word Analytics",
+    title: "SkyCast",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
+      "A go-to weather app for real-time updates and forecasts. It's designed as a learning exercise to understand weather data integration and deployment using AWS.",
+    tags: ["HTML5", "CSS3", "Javascript", "AWS"],
+    imageUrl: SkyCast,
   },
 ] as const;
 
