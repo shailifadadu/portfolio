@@ -5,8 +5,8 @@ import { SiContributorcovenant } from "react-icons/si";
 import { HiPencil } from "react-icons/hi2";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
+import MoneyMorpher from "@/public/MoneyMorpher.png";
+import LinkShrink from "@/public/LinkShrink.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 
 export const links = [
@@ -73,18 +73,18 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "MoneyMorpher",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "A sleek and simple currency converter web application that allows users to convert between different currencies using real-time exchange rates.",
+    tags: ["React", "Tailwind", "Vercel"],
+    imageUrl: MoneyMorpher,
   },
   {
-    title: "rmtDev",
+    title: "LinkShrink",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
+      "This is a simple URL shortener that allows users to generate short URLs for long links, making it easier to share them.",
+    tags: ["NodeJS", "Express", "MongoDB"],
+    imageUrl: LinkShrink,
   },
   {
     title: "Word Analytics",
@@ -101,18 +101,14 @@ export const skillsData = [
   "JavaScript",
   "TypeScript",
   "React",
-  "Next.js",
   "Node.js",
+  "Express",
   "Git",
+  "Github",
   "Tailwind",
-  "Prisma",
   "MongoDB",
   "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
   "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
+  "MySQL",
+  "AWS",
 ] as const;
