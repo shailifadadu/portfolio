@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="mb-10 px-4 text-center text-gray-500">
-      <span className="font-semibold">Made With 💖 by Shaily Fadadu</span>
+      <span className="font-semibold">Made with 💖 by Shaily Fadadu</span>
       <div className="mt-4">
         <a
           href="https://github.com/shailifadadu"
