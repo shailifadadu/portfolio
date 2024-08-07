@@ -46,20 +46,20 @@ export const experiencesData = [
     date: "Jun 2024 - Present",
   },
   {
-    title: "Contributor",
-    location: "GirlScript Summer of Code",
-    description:
-      "Contributing to various Open Source projects and learning best practices in open-source development.",
-    icon: React.createElement(SiContributorcovenant),
-    date: "May 2024 - Present",
-  },
-  {
     title: "Cloud Team Member",
     location: "Google Developer Student Clubs",
     description:
       "Serving as a cloud team member for a year, organizing and speaking at various tech events and hackathons.",
     icon: React.createElement(BiLogoGoogleCloud),
     date: "Sep 2023 - Present",
+  },
+  {
+    title: "Contributor",
+    location: "GirlScript Summer of Code",
+    description:
+      "Contributing to various Open Source projects and learning best practices in open-source development.",
+    icon: React.createElement(SiContributorcovenant),
+    date: "May 2024 - Aug 2024",
   },
   {
     title: "Associate Content Creator",
