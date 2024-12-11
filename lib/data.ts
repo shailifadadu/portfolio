@@ -38,18 +38,10 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Mentee",
-    location: "Codess.Cafe",
-    description:
-      "Participating in the Codess.Cafe mentorship program, where I collaborate with industry professionals to enhance my tech skills and build a strong professional network.",
-    icon: React.createElement(LuGraduationCap),
-    date: "Jun 2024 - Present",
-  },
-  {
-    title: "Cloud Team Member",
+    title: "Co-Lead & Cloud Team Member",
     location: "Google Developer Student Clubs",
     description:
-      "Serving as a cloud team member for a year, organizing and speaking at various tech events and hackathons.",
+      "As Co-Lead, I mentor and guide a dynamic team, while continuing my role as a Cloud Team Member, organizing and speaking at various tech events and hackathons.",
     icon: React.createElement(BiLogoGoogleCloud),
     date: "Sep 2023 - Present",
   },
