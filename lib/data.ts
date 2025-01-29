@@ -1,5 +1,5 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
+import { CgWorkAlt, CgCommunity } from "react-icons/cg";
 import { BiLogoGoogleCloud } from "react-icons/bi";
 import { SiContributorcovenant } from "react-icons/si";
 import { HiPencil } from "react-icons/hi2";
@@ -7,7 +7,7 @@ import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import MoneyMorpher from "@/public/MoneyMorpher.png";
 import LinkShrink from "@/public/LinkShrink.png";
-import SkyCast from "@/public/SkyCast.png";
+import BuzzConnect from "@/public/BuzzConnect.png";
 
 export const links = [
   {
@@ -38,10 +38,18 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Co-Lead & Cloud Team Member",
-    location: "Google Developer Student Clubs",
+    title: "Sponsorship Lead",
+    location: "DUHacks 4.0, GDSC DDU",
     description:
-      "As Co-Lead, I mentor and guide a dynamic team, while continuing my role as a Cloud Team Member, organizing and speaking at various tech events and hackathons.",
+      "Leading sponsorship initiatives for DUHacks 4.0, Directing the entire hackathon and managing logistics.",
+    icon: React.createElement(CgCommunity),
+    date: "Oct 2024 - Present",
+  },
+  {
+    title: "Co-Lead & Cloud Team Member",
+    location: "Google Developer Student Clubs, DDU",
+    description:
+      "As Co-Lead, I mentor and guide a dynamic team, organizing Hackathons with 3000+ participants, various tech campaigns & events promoting the community.",
     icon: React.createElement(BiLogoGoogleCloud),
     date: "Sep 2023 - Present",
   },
@@ -65,6 +73,14 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "BuzzConnect",
+    description:
+      "A Chat-application that Connect with friends, share moments, and stay in touch with the loved ones.",
+    tags: ["React", "Tailwind", "Socket.io", "Render"],
+    imageUrl: BuzzConnect,
+    githubLink: "https://github.com/shailifadadu/BuzzConnect",
+  },
+  {
     title: "MoneyMorpher",
     description:
       "A sleek and simple currency converter web application that allows users to convert between different currencies using real-time exchange rates.",
@@ -80,30 +96,21 @@ export const projectsData = [
     imageUrl: LinkShrink,
     githubLink: "https://github.com/shailifadadu/LinkShrink",
   },
-  {
-    title: "SkyCast",
-    description:
-      "A go-to weather app for real-time updates and forecasts. It's designed as a learning exercise to understand weather data integration and deployment using AWS.",
-    tags: ["HTML5", "CSS3", "Javascript", "AWS"],
-    imageUrl: SkyCast,
-    githubLink: "https://github.com/shailifadadu/SkyCast",
-  },
 ] as const;
 
 export const skillsData = [
-  "HTML",
+  "Java",
+  "Spring",
+  "Hibernate",
+  "HTML5",
   "CSS",
   "JavaScript",
-  "TypeScript",
   "React",
   "Node.js",
-  "Express",
+  "Next.js",
   "Git",
   "Github",
-  "Tailwind",
   "MongoDB",
-  "Redux",
-  "PostgreSQL",
-  "MySQL",
+  "SQL",
   "AWS",
 ] as const;
