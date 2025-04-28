@@ -5,8 +5,9 @@ import { SiContributorcovenant } from "react-icons/si";
 import { HiPencil } from "react-icons/hi2";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import MoneyMorpher from "@/public/MoneyMorpher.png";
-import LinkShrink from "@/public/LinkShrink.png";
+import Finwelth from "@/public/Finwelth.png";
+import InvoEase from "@/public/InvoEase.png";
+import MailGenie from "@/public/MailGenie.png";
 import BuzzConnect from "@/public/BuzzConnect.png";
 
 export const links = [
@@ -38,20 +39,20 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Sponsorship Lead",
-    location: "DUHacks 4.0, GDSC DDU",
-    description:
-      "Leading sponsorship initiatives for DUHacks 4.0, Directing the entire hackathon and managing logistics.",
-    icon: React.createElement(CgCommunity),
-    date: "Oct 2024 - Present",
-  },
-  {
     title: "Co-Lead & Cloud Team Member",
     location: "Google Developer Student Clubs, DDU",
     description:
       "As Co-Lead, I mentor and guide a dynamic team, organizing Hackathons with 3000+ participants, various tech campaigns & events promoting the community.",
     icon: React.createElement(BiLogoGoogleCloud),
     date: "Sep 2023 - Present",
+  },
+  {
+    title: "Sponsorship Lead",
+    location: "DUHacks 4.0, GDSC DDU",
+    description:
+      "Spearheaded sponsorship initiatives for DUHacks 4.0 with 6000+ registrations, Directed the entire hackathon and managed logistics.",
+    icon: React.createElement(CgCommunity),
+    date: "Oct 2024 - Feb 2025",
   },
   {
     title: "Contributor",
@@ -73,6 +74,30 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "FinWelth",
+    description:
+      "A smart, AI-Powered personal finance platform that help you manage your finances efficiently.",
+    tags: ["NextJS", "Tailwind", "Shadcn", "Supabase", "Clerk", "Inngest"],
+    imageUrl: Finwelth,
+    githubLink: "https://github.com/shailifadadu/FinWelth",
+  },
+  {
+    title: "InvoEase",
+    description:
+      " It is a powerful yet simple invoicing platform designed to help users manage their invoices efficiently",
+    tags: ["NextJS", "Tailwind", "PostgreSQL", "MailTrap"],
+    imageUrl: InvoEase,
+    githubLink: "https://github.com/shailifadadu/InvoEase",
+  },
+  {
+    title: "MailGenie",
+    description:
+      " It's AI powered email reply generator - Chrome extension that helps you generate well-structured email replies quickly.",
+    tags: ["ReactJS", "SpringBoot", "GenAI"],
+    imageUrl: MailGenie,
+    githubLink: "https://github.com/shailifadadu/MailGenie",
+  },
+  {
     title: "BuzzConnect",
     description:
       "A Chat-application that Connect with friends, share moments, and stay in touch with the loved ones.",
@@ -80,34 +105,17 @@ export const projectsData = [
     imageUrl: BuzzConnect,
     githubLink: "https://github.com/shailifadadu/BuzzConnect",
   },
-  {
-    title: "MoneyMorpher",
-    description:
-      "A sleek and simple currency converter web application that allows users to convert between different currencies using real-time exchange rates.",
-    tags: ["React", "Tailwind", "Vercel"],
-    imageUrl: MoneyMorpher,
-    githubLink: "https://github.com/shailifadadu/MoneyMorpher",
-  },
-  {
-    title: "LinkShrink",
-    description:
-      "This is a simple URL shortener that allows users to generate short URLs for long links, making it easier to share them.",
-    tags: ["NodeJS", "Express", "MongoDB"],
-    imageUrl: LinkShrink,
-    githubLink: "https://github.com/shailifadadu/LinkShrink",
-  },
 ] as const;
 
 export const skillsData = [
   "Java",
-  "Spring",
+  "SpringBoot",
   "Hibernate",
-  "HTML5",
-  "CSS",
   "JavaScript",
   "React",
   "Node.js",
   "Next.js",
+  "Express.js",
   "Git",
   "Github",
   "MongoDB",

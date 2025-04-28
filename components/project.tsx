@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { projectsData } from "@/lib/data";
+import { FaGithub } from "react-icons/fa";
 
 type ProjectProps = (typeof projectsData)[number];
 
@@ -45,6 +46,21 @@ const Project = forwardRef<HTMLAnchorElement, ProjectProps>(
                 </li>
               ))}
             </ul>
+
+            {githubLink && (
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex justify-between items-center bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors duration-300 w-full sm:w-auto"
+              >
+                {/* Left side - Text */}
+                <span>View on GitHub</span>
+
+                {/* Right side - GitHub Icon */}
+                <FaGithub className="w-5 h-5 ml-4" />
+              </a>
+            )}
           </div>
 
           <Image
@@ -60,7 +76,7 @@ const Project = forwardRef<HTMLAnchorElement, ProjectProps>(
 
         group-even:group-hover:translate-x-3
         group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
+        group-even:group-even:rotate-2
 
         group-even:right-[initial] group-even:-left-40"
           />
