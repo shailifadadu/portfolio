@@ -21,16 +21,34 @@ const Project = forwardRef<HTMLDivElement, ProjectProps>(
         ref={ref}
         style={{ scale: scaleProgress, opacity: opacityProgress }}
       >
-        <article className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors duration-150 bg-white dark:bg-zinc-950">
+        <article className="
+          group relative
+          border border-zinc-200 dark:border-zinc-700
+          rounded-xl p-6
+          bg-white dark:bg-zinc-900
+          shadow-sm dark:shadow-none
+          hover:shadow-lg dark:hover:shadow-emerald-900/20
+          hover:border-emerald-400 dark:hover:border-emerald-500
+          hover:-translate-y-1
+          transition-all duration-300 ease-out
+          overflow-hidden
+        ">
+
+          {/* Subtle green glow on hover */}
+          <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent dark:from-emerald-500/10" />
+
+          {/* Accent top-edge line on hover */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl bg-gradient-to-r from-emerald-400 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
           {/* Top row: title + link */}
-          <div className="flex items-start justify-between mb-3">
-            <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 leading-tight">
+          <div className="flex items-start justify-between mb-3 relative">
+            <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
               {title}
             </h3>
 
             <div className="ml-4 shrink-0 pt-0.5">
               {isInternal ? (
-                <span className="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-2.5 py-1 rounded-full whitespace-nowrap">
+                <span className="font-mono text-[10px] text-zinc-400 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-600 px-2.5 py-1 rounded-full whitespace-nowrap">
                   {internalLabel ?? "Internal"}
                 </span>
               ) : githubLink ? (
@@ -38,7 +56,7 @@ const Project = forwardRef<HTMLDivElement, ProjectProps>(
                   href={githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[11px] text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700 px-3 py-1 rounded-md hover:text-emerald-600 hover:border-emerald-500 dark:hover:text-emerald-400 dark:hover:border-emerald-500 transition-colors duration-150"
+                  className="font-mono text-[11px] text-zinc-500 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-600 px-3 py-1 rounded-md hover:text-emerald-600 hover:border-emerald-500 dark:hover:text-emerald-400 dark:hover:border-emerald-400 transition-colors duration-150"
                   onClick={(e) => e.stopPropagation()}
                 >
                   GitHub →
@@ -48,24 +66,24 @@ const Project = forwardRef<HTMLDivElement, ProjectProps>(
           </div>
 
           {/* Description */}
-          <p className="text-sm font-light leading-relaxed text-zinc-500 dark:text-zinc-400 mb-4">
+          <p className="text-sm font-light leading-relaxed text-zinc-500 dark:text-zinc-400 mb-4 relative">
             {description}
           </p>
 
-          {/* Highlight block — only renders if highlight is provided */}
+          {/* Highlight block */}
           {highlight && (
-            <div className="text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400 px-4 py-3 bg-zinc-50 dark:bg-zinc-900 rounded-lg border-l-2 border-emerald-500 mb-4">
-              <span className="font-medium text-zinc-700 dark:text-zinc-300">Key features: </span>
+            <div className="text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-300 px-4 py-3 bg-zinc-50 dark:bg-zinc-800 rounded-lg border-l-2 border-emerald-500 mb-4 relative">
+              <span className="font-medium text-zinc-700 dark:text-zinc-100">Key features: </span>
               {highlight}
             </div>
           )}
 
           {/* Tags */}
-          <ul className="flex flex-wrap gap-1.5">
+          <ul className="flex flex-wrap gap-1.5 relative">
             {tags.map((tag, index) => (
               <li
                 key={index}
-                className="font-mono text-[11px] text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3 py-1 rounded-full"
+                className="font-mono text-[11px] text-zinc-500 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-600 px-3 py-1 rounded-full group-hover:border-emerald-500/40 dark:group-hover:border-emerald-500/50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors duration-200"
               >
                 {tag}
               </li>
