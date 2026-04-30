@@ -7,8 +7,6 @@ import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare, FaTerminal } from "react-icons/fa";
-import { useSectionInView } from "@/lib/hooks";
-import { useActiveSectionContext } from "@/context/active-section-context";
 
 const TerminalLine = ({
   prefix,
@@ -61,8 +59,6 @@ const TerminalLine = ({
 };
 
 export default function Intro() {
-  const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
@@ -72,7 +68,6 @@ export default function Intro() {
 
   return (
     <section
-      ref={ref}
       id="home"
       className="mb-28 max-w-[52rem] text-center sm:mb-0 scroll-mt-[100rem] px-4"
     >
@@ -168,12 +163,8 @@ export default function Intro() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <Link
-            href="#contact"
+            href="/contact"
             className="group bg-accent text-accent-foreground px-6 py-3 flex items-center gap-2 rounded-lg font-medium card-hover glow"
-            onClick={() => {
-              setActiveSection("Contact");
-              setTimeOfLastClick(Date.now());
-            }}
           >
             Contact me
             <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
