@@ -3,14 +3,11 @@
 import React from "react";
 import SectionHeading from "./section-heading";
 import { experiencesData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 
 export default function Experience() {
-  const { ref } = useSectionInView("Experience");
-
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40 max-w-3xl mx-auto px-4">
+    <section id="experience" className="scroll-mt-28 mb-28 sm:mb-40 max-w-3xl mx-auto px-4">
       <SectionHeading>My Experience</SectionHeading>
       
       <div className="relative">

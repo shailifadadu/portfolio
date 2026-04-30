@@ -4,12 +4,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const pathname = usePathname();
+
+  const getActivePage = () => {
+    const link = links.find((l) => l.path === pathname);
+    return link?.name || "Home";
+  };
+
+  const activePage = getActivePage();
 
   return (
     <header className="z-[999] relative">
@@ -24,7 +30,7 @@ export default function Header() {
           {links.map((link) => (
             <motion.li
               className="h-3/4 flex items-center justify-center relative"
-              key={link.hash}
+              key={link.path}
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
             >
@@ -32,23 +38,14 @@ export default function Header() {
                 className={clsx(
                   "flex w-full items-center justify-center px-3 py-3 transition-colors duration-200 hover:text-foreground",
                   {
-                    "text-foreground": activeSection === link.name,
+                    "text-foreground": activePage === link.name,
                   }
                 )}
-                href={link.hash}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.querySelector(link.hash);
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                  setActiveSection(link.name);
-                  setTimeOfLastClick(Date.now());
-                }}
+                href={link.path}
               >
                 {link.name}
 
-                {link.name === activeSection && (
+                {link.name === activePage && (
                   <motion.span
                     className="bg-accent/10 border border-accent/20 rounded-full absolute inset-0 -z-10"
                     layoutId="activeSection"

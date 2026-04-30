@@ -3,13 +3,11 @@
 import React, { useState } from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
 import toast from "react-hot-toast";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact");
   const [pending, setPending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,7 +30,6 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      ref={ref}
       className="mb-20 sm:mb-28 w-[min(100%,38rem)] px-4 mx-auto"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

@@ -13,27 +13,27 @@ import BuzzConnect from "@/public/BuzzConnect.png";
 export const links = [
   {
     name: "Home",
-    hash: "#home",
+    path: "/",
   },
   {
     name: "About",
-    hash: "#about",
+    path: "/about",
   },
   {
     name: "Projects",
-    hash: "#projects",
+    path: "/projects",
   },
   {
     name: "Skills",
-    hash: "#skills",
+    path: "/skills",
   },
   {
     name: "Experience",
-    hash: "#experience",
+    path: "/experience",
   },
   {
     name: "Contact",
-    hash: "#contact",
+    path: "/contact",
   },
 ] as const;
 
