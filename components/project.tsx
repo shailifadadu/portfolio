@@ -4,18 +4,18 @@ import { forwardRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { projectsData } from "@/lib/data";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 type ProjectProps = (typeof projectsData)[number];
 
 const Project = forwardRef<HTMLAnchorElement, ProjectProps>(
   ({ title, description, tags, imageUrl, githubLink }, ref) => {
     const { scrollYProgress } = useScroll({
-      target: ref as any, // Cast ref to any to resolve TypeScript error
+      target: ref as any,
       offset: ["0 1", "1.33 1"],
     });
-    const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
     return (
       <motion.a
@@ -24,63 +24,65 @@ const Project = forwardRef<HTMLAnchorElement, ProjectProps>(
         rel="noopener noreferrer"
         ref={ref}
         style={{
-          scale: scaleProgess,
-          opacity: opacityProgess,
-          display: "block", // Ensures the entire section is clickable
+          scale: scaleProgress,
+          opacity: opacityProgress,
+          display: "block",
         }}
-        className="group mb-3 sm:mb-8 last:mb-0"
+        className="group mb-6 sm:mb-10 last:mb-0"
       >
-        <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
-          <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
-            <h3 className="text-2xl font-semibold">{title}</h3>
-            <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
-              {description}
-            </p>
-            <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
-              {tags.map((tag, index) => (
-                <li
-                  className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
-                  key={index}
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-
-            {githubLink && (
-              <a
-                href={githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex justify-between items-center bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors duration-300 w-full sm:w-auto"
-              >
-                {/* Left side - Text */}
-                <span>View on GitHub</span>
-
-                {/* Right side - GitHub Icon */}
-                <FaGithub className="w-5 h-5 ml-4" />
-              </a>
-            )}
+        <article className="glass rounded-lg overflow-hidden sm:h-[22rem] relative card-hover">
+          <div className="flex flex-col sm:flex-row h-full group-even:sm:flex-row-reverse">
+            {/* Content */}
+            <div className="p-6 sm:p-8 flex flex-col justify-center sm:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                {title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                {description}
+              </p>
+              
+              {/* Tags */}
+              <ul className="flex flex-wrap gap-2 mb-5">
+                {tags.map((tag, index) => (
+                  <li
+                    key={index}
+                    className="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+              
+              {/* GitHub Link */}
+              {githubLink && (
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-accent transition-colors">
+                    <FaGithub className="w-4 h-4" />
+                    View Source
+                    <FaExternalLinkAlt className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </div>
+              )}
+            </div>
+            
+            {/* Image */}
+            <div className="relative sm:w-1/2 h-48 sm:h-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r group-even:sm:bg-gradient-to-l from-card/80 to-transparent z-10" />
+              <Image
+                src={imageUrl}
+                alt={`${title} project screenshot`}
+                fill
+                quality={95}
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
           </div>
-
-          <Image
-            src={imageUrl}
-            alt="Project I worked on"
-            quality={95}
-            className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-        transition 
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
-
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-even:rotate-2
-
-        group-even:right-[initial] group-even:-left-40"
-          />
-        </section>
+          
+          {/* Hover glow effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 bg-accent/5" />
+          </div>
+        </article>
       </motion.a>
     );
   }

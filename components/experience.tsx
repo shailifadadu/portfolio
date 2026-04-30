@@ -2,57 +2,75 @@
 
 import React from "react";
 import SectionHeading from "./section-heading";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
-import { useTheme } from "@/context/theme-context";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
-  const { theme } = useTheme();
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
-      <SectionHeading>My experience</SectionHeading>
-      <VerticalTimeline lineColor="">
-        {experiencesData.map((item, index) => (
-          <React.Fragment key={index}>
-            <VerticalTimelineElement
-              contentStyle={{
-                background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                boxShadow: "none",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                textAlign: "left",
-                padding: "1.3rem 2rem",
-              }}
-              contentArrowStyle={{
-                borderRight:
-                  theme === "light"
-                    ? "0.4rem solid #9ca3af"
-                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
-              }}
-              date={item.date}
-              icon={item.icon}
-              iconStyle={{
-                background:
-                  theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
-                fontSize: "1.5rem",
-              }}
+    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40 max-w-3xl mx-auto px-4">
+      <SectionHeading>My Experience</SectionHeading>
+      
+      <div className="relative">
+        {/* Timeline Line */}
+        <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 timeline-line sm:-translate-x-1/2" />
+        
+        {/* Timeline Items */}
+        <div className="space-y-12">
+          {experiencesData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className={`relative flex flex-col sm:flex-row gap-4 sm:gap-8 ${
+                index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+              }`}
             >
-              <h3 className="font-semibold capitalize">{item.title}</h3>
-              <p className="font-normal !mt-0">{item.location}</p>
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
-                {item.description}
-              </p>
-            </VerticalTimelineElement>
-          </React.Fragment>
-        ))}
-      </VerticalTimeline>
+              {/* Timeline Dot */}
+              <div className="absolute left-4 sm:left-1/2 w-3 h-3 bg-accent rounded-full sm:-translate-x-1/2 ring-4 ring-background z-10" />
+              
+              {/* Date - Desktop */}
+              <div className={`hidden sm:block flex-1 ${index % 2 === 0 ? "text-right pr-8" : "text-left pl-8"}`}>
+                <span className="text-sm font-mono text-accent">{item.date}</span>
+              </div>
+              
+              {/* Content Card */}
+              <motion.div
+                className={`flex-1 ml-10 sm:ml-0 ${index % 2 === 0 ? "sm:pl-8" : "sm:pr-8"}`}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="glass rounded-lg p-5 card-hover">
+                  {/* Date - Mobile */}
+                  <span className="sm:hidden text-xs font-mono text-accent block mb-2">
+                    {item.date}
+                  </span>
+                  
+                  {/* Icon & Title */}
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="p-2 rounded-lg bg-accent/10 text-accent shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.location}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

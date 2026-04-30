@@ -18,9 +18,12 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   const toggleTheme = () => {
+    // Add transitioning class for smooth transition
+    document.documentElement.classList.add("transitioning");
+    
     if (theme === "light") {
       setTheme("dark");
       window.localStorage.setItem("theme", "dark");
@@ -30,6 +33,11 @@ export default function ThemeContextProvider({
       window.localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
     }
+    
+    // Remove transitioning class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove("transitioning");
+    }, 300);
   };
 
   useEffect(() => {
@@ -40,6 +48,8 @@ export default function ThemeContextProvider({
 
       if (localTheme === "dark") {
         document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setTheme("dark");
