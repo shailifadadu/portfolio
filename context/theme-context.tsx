@@ -51,7 +51,8 @@ export default function ThemeContextProvider({
       } else {
         document.documentElement.classList.remove("dark");
       }
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    } else {
+      // Default to dark mode
       setTheme("dark");
       document.documentElement.classList.add("dark");
     }

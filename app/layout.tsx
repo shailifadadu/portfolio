@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark bg-background`}>
       <body className="font-sans bg-background text-foreground relative pt-28 sm:pt-36">
         {/* Subtle gradient backgrounds */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
