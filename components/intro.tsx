@@ -133,7 +133,7 @@ export default function Intro() {
             isCommand={true}
           />
           <TerminalLine
-            text="Full-Stack Developer | Open Source Contributor | Cloud Enthusiast"
+            text="Backend Developer"
             delay={1900}
           />
         </div>

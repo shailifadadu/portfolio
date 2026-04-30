@@ -1,89 +1,78 @@
 "use client";
 
 import { forwardRef } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { projectsData } from "@/lib/data";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 type ProjectProps = (typeof projectsData)[number];
 
-const Project = forwardRef<HTMLAnchorElement, ProjectProps>(
-  ({ title, description, tags, imageUrl, githubLink }, ref) => {
+const Project = forwardRef<HTMLDivElement, ProjectProps>(
+  ({ title, description, tags, githubLink, highlight, isInternal, internalLabel }, ref) => {
     const { scrollYProgress } = useScroll({
       target: ref as any,
       offset: ["0 1", "1.33 1"],
     });
-    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.97, 1]);
     const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
     return (
-      <motion.a
-        href={githubLink}
-        target="_blank"
-        rel="noopener noreferrer"
+      <motion.div
         ref={ref}
-        style={{
-          scale: scaleProgress,
-          opacity: opacityProgress,
-          display: "block",
-        }}
-        className="group mb-6 sm:mb-10 last:mb-0"
+        style={{ scale: scaleProgress, opacity: opacityProgress }}
       >
-        <article className="glass rounded-lg overflow-hidden sm:h-[22rem] relative card-hover">
-          <div className="flex flex-col sm:flex-row h-full group-even:sm:flex-row-reverse">
-            {/* Content */}
-            <div className="p-6 sm:p-8 flex flex-col justify-center sm:w-1/2">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
-                {title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                {description}
-              </p>
-              
-              {/* Tags */}
-              <ul className="flex flex-wrap gap-2 mb-5">
-                {tags.map((tag, index) => (
-                  <li
-                    key={index}
-                    className="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20"
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-              
-              {/* GitHub Link */}
-              {githubLink && (
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-accent transition-colors">
-                    <FaGithub className="w-4 h-4" />
-                    View Source
-                    <FaExternalLinkAlt className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </span>
-                </div>
-              )}
-            </div>
-            
-            {/* Image */}
-            <div className="relative sm:w-1/2 h-48 sm:h-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r group-even:sm:bg-gradient-to-l from-card/80 to-transparent z-10" />
-              <Image
-                src={imageUrl}
-                alt={`${title} project screenshot`}
-                fill
-                quality={95}
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              />
+        <article className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors duration-150 bg-white dark:bg-zinc-950">
+          {/* Top row: title + link */}
+          <div className="flex items-start justify-between mb-3">
+            <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 leading-tight">
+              {title}
+            </h3>
+
+            <div className="ml-4 shrink-0 pt-0.5">
+              {isInternal ? (
+                <span className="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-2.5 py-1 rounded-full whitespace-nowrap">
+                  {internalLabel ?? "Internal"}
+                </span>
+              ) : githubLink ? (
+                <Link
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[11px] text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700 px-3 py-1 rounded-md hover:text-emerald-600 hover:border-emerald-500 dark:hover:text-emerald-400 dark:hover:border-emerald-500 transition-colors duration-150"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  GitHub →
+                </Link>
+              ) : null}
             </div>
           </div>
-          
-          {/* Hover glow effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-            <div className="absolute inset-0 bg-accent/5" />
-          </div>
+
+          {/* Description */}
+          <p className="text-sm font-light leading-relaxed text-zinc-500 dark:text-zinc-400 mb-4">
+            {description}
+          </p>
+
+          {/* Highlight block — only renders if highlight is provided */}
+          {highlight && (
+            <div className="text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400 px-4 py-3 bg-zinc-50 dark:bg-zinc-900 rounded-lg border-l-2 border-emerald-500 mb-4">
+              <span className="font-medium text-zinc-700 dark:text-zinc-300">Key features: </span>
+              {highlight}
+            </div>
+          )}
+
+          {/* Tags */}
+          <ul className="flex flex-wrap gap-1.5">
+            {tags.map((tag, index) => (
+              <li
+                key={index}
+                className="font-mono text-[11px] text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3 py-1 rounded-full"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
         </article>
-      </motion.a>
+      </motion.div>
     );
   }
 );

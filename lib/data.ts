@@ -74,36 +74,40 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "FinWelth",
+    title: "Microservices Platform",
     description:
-      "A smart, AI-Powered personal finance platform that help you manage your finances efficiently.",
-    tags: ["NextJS", "Tailwind", "Shadcn", "Supabase", "Clerk", "Inngest"],
-    imageUrl: Finwelth,
-    githubLink: "https://github.com/shailifadadu/FinWelth",
+      "Designed and built a production microservices architecture during my internship at eInfochips. The system handles service-to-service communication, authentication, and data flow across independently deployable modules.",
+    highlight:
+      "RESTful microservices with Spring Boot, inter-service communication, JWT-based auth, and containerization with Docker — following enterprise-grade patterns used in production systems.",
+    tags: ["Java", "Spring Boot", "Microservices", "Docker", "REST APIs", "JWT Auth"],
+    imageUrl: "", // unused in new UI — keep to avoid type errors
+    githubLink: "",
+    isInternal: true,
+    internalLabel: "eInfochips · Internal",
+  },
+  {
+    title: "WealthVerse",
+    description:
+      "A financial and carbon emission tracker for young professionals — combines expense management with environmental awareness in one platform. Full-stack with Spring Boot, React, and an AI-powered chatbot for financial insights.",
+    highlight:
+      "Smart merchant categorization, CO₂ emission calculation per transaction, analytics dashboards, Groq LLM chatbot via Flask, and fully deployed on AWS (Amplify + EC2 + RDS + Route 53).",
+    tags: ["React", "Spring Boot", "MySQL", "AWS", "Groq LLM", "Flask", "JWT", "Tailwind"],
+    imageUrl: "/WealthVerse.png", // keep your existing image if you have one
+    githubLink: "https://github.com/shailifadadu/WealthVerse",
+    isInternal: false,
+    internalLabel: "",
   },
   {
     title: "InvoEase",
     description:
-      " It is a powerful yet simple invoicing platform designed to help users manage their invoices efficiently",
-    tags: ["NextJS", "Tailwind", "PostgreSQL", "MailTrap"],
-    imageUrl: InvoEase,
+      "A clean, full-stack invoicing platform that lets users create, manage, and track invoices effortlessly. Built with a focus on usability — from generating invoices to automated email delivery via MailTrap.",
+    highlight:
+      "Invoice creation and management, PDF generation, email delivery via MailTrap, PostgreSQL-backed data persistence, and a responsive Next.js frontend.",
+    tags: ["Next.js", "PostgreSQL", "MailTrap", "Tailwind", "REST APIs"],
+    imageUrl: "/InvoEase.png",
     githubLink: "https://github.com/shailifadadu/InvoEase",
-  },
-  {
-    title: "MailGenie",
-    description:
-      " It's AI powered email reply generator - Chrome extension that helps you generate well-structured email replies quickly.",
-    tags: ["ReactJS", "SpringBoot", "GenAI"],
-    imageUrl: MailGenie,
-    githubLink: "https://github.com/shailifadadu/MailGenie",
-  },
-  {
-    title: "BuzzConnect",
-    description:
-      "A Chat-application that Connect with friends, share moments, and stay in touch with the loved ones.",
-    tags: ["React", "Tailwind", "Socket.io", "Render"],
-    imageUrl: BuzzConnect,
-    githubLink: "https://github.com/shailifadadu/BuzzConnect",
+    isInternal: false,
+    internalLabel: "",
   },
 ] as const;
 
