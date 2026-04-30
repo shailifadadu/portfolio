@@ -36,7 +36,12 @@ export default function Header() {
                   }
                 )}
                 href={link.hash}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(link.hash);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
                   setActiveSection(link.name);
                   setTimeOfLastClick(Date.now());
                 }}
