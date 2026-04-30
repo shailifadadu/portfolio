@@ -2,14 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --line-color: #e5e7eb;
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 165 80% 45%;
+    --accent-foreground: 165 80% 98%;
+    --border: 220 15% 88%;
+    --ring: 165 80% 45%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 220 10% 95%;
+    --card: 220 25% 10%;
+    --card-foreground: 220 10% 95%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 165 80% 50%;
+    --accent-foreground: 165 80% 10%;
+    --border: 220 20% 18%;
+    --ring: 165 80% 50%;
+  }
 }
 
-html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    --line-color: hsl(var(--border));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }
 
-.borderBlack {
-  @apply border border-black/10;
+@layer components {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+
+  .glass-strong {
+    @apply bg-card/80 backdrop-blur-2xl border border-border/60 shadow-xl;
+  }
+
+  .borderBlack {
+    @apply border border-border;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  .glow {
+    box-shadow: 0 0 40px -10px hsl(var(--accent) / 0.3);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-xl;
+    box-shadow: 0 20px 40px -15px hsl(var(--accent) / 0.15);
+  }
+}
+
+/* Terminal cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Timeline line gradient */
+.timeline-line {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--accent)) 0%,
+    hsl(var(--accent) / 0.5) 50%,
+    hsl(var(--accent) / 0.1) 100%
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent/70;
+}
+
+/* Smooth transitions for theme switch */
+html.transitioning,
+html.transitioning *,
+html.transitioning *:before,
+html.transitioning *:after {
+  transition: all 300ms ease-in-out !important;
+  transition-delay: 0 !important;
 }
